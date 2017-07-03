@@ -1,0 +1,50 @@
+	http://central.maven.org/maven2/
+
+1>在setting.xml中设置
+1、设置用户默认jdk版本，避免update project时，更换jdk版本
+<profile>     
+    <id>jdk1.7</id>      
+    <activation>     
+        <activeByDefault>true</activeByDefault>      
+        <jdk>1.7</jdk>     
+    </activation>      
+    <properties>     
+        <maven.compiler.source>1.7</maven.compiler.source>      
+        <maven.compiler.target>1.7</maven.compiler.target>      
+        <maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>     
+    </properties>     
+</profile>  
+
+2、设置maven中央仓库文职
+	<mirror>
+		<id>alimaven</id>
+		<name>aliyun maven</name>
+		<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		<mirrorOf>central</mirrorOf>
+	</mirror>
+	
+3、设置本地仓库位置
+<localRepository>D:\maven-jar\repository</localRepository>
+
+
+在pom.xml中设置
+1、设置项目默认jdk版本
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>	
+2、设置字符集，设置相关版本
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>4.0.0.RELEASE</spring.version>
+		<druid.version>1.1.0</druid.version>
+	</properties>
+3、
